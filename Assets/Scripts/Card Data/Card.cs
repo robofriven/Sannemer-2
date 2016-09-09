@@ -5,8 +5,8 @@ public class Card
 {
 
     // Card Stat variables
-    private int attack;
-    private int defense;
+    public int attack { get; private set; }
+    public int defense { get; private set; }
 
 
     // Add in special Abilities
