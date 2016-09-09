@@ -23,9 +23,15 @@ public class SpriteController : MonoBehaviour
     public Transform defenseCard;                           // Board area of defense card
 
 
-
-    public void DrawCard(int attack, int defense, Place place)
+    /// <summary>
+    /// Creates the GameObject for the Cards
+    /// </summary>
+    /// <param name="attack"></param>
+    /// <param name="defense"></param>
+    /// <param name="place"></param>
+    public void DrawCard(int attack, int defense, Place place = Place.cardArea)
     {
+        // Probably not going to need this switch, but maybe.
         switch (place)
         {
             case Place.cardArea:
@@ -33,18 +39,24 @@ public class SpriteController : MonoBehaviour
                 defenseText.text = defense.ToString();
                 GameObject hand = (GameObject)Instantiate(cardPrefab, Vector3.zero, Quaternion.identity);
                 hand.transform.SetParent(cardArea.transform);
+                hand.GetComponent<CardData>().Attack = attack;
+                hand.GetComponent<CardData>().Defense = defense;
                 break;
             case Place.attackArea:
                 attackText.text = attack.ToString();
                 defenseText.text = defense.ToString();
                 GameObject att = (GameObject)Instantiate(cardPrefab, Vector3.zero, Quaternion.identity);
                 att.transform.SetParent(attackCard.transform);
+                att.GetComponent<CardData>().Attack = attack;
+                att.GetComponent<CardData>().Defense = defense;
                 break;
             case Place.defenseArea:
                 attackText.text = attack.ToString();
                 defenseText.text = defense.ToString();
                 GameObject def = (GameObject)Instantiate(cardPrefab, Vector3.zero, Quaternion.identity);
                 def.transform.SetParent(defenseCard.transform);
+                def.GetComponent<CardData>().Attack = attack;
+                def.GetComponent<CardData>().Defense = defense;
                 break;
             default:
                 Debug.LogError("WTF MATE??");
