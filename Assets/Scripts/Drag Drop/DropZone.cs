@@ -28,20 +28,19 @@ public class DropZone : MonoBehaviour, IDropHandler
     private void DropCard(GameObject draggedCard)
     {
         // Set the parent to link the object being dragged to the drop zone it was dropped on.  Assumes parentToReturnTo exists.
+        if (this.transform.childCount > this.allowedCards) return;
 
         draggedCard.GetComponent<Draggable>().parentToReturnTo = this.transform;
 
         var attack = this.GetComponent<Attack>();
         if (attack != null)
         {
-            Debug.Log("This is an attack card now");
             attack.attackValue = draggedCard.GetComponent<CardData>().Attack;
         }
 
-        var defend = this.GetComponent<Defend>();
+        var defend = this.GetComponent<Defense>();
         if (defend != null)
         {
-            Debug.Log("This is an Defense card now");
             defend.defenseValue = draggedCard.GetComponent<CardData>().Defense;
         }
     }

@@ -57,11 +57,11 @@ public class Dealer
     /// <param name="amount"></param>
     public void Deal(int playerNumber, int amount)
     {
-        // TODO
-        // THIS
+        // TODO Deal function to give X cards to Y player
+        
     }
 
-    // TODO
+    // TODO Make the Shuffle function with an existing deck
     // "Shuffles" the deck by building a new deck with the same cards but in a random order
     public Deck Shuffle(Deck deck)
     {

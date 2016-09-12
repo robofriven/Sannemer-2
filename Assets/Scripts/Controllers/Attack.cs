@@ -4,7 +4,7 @@ using System.Collections;
 public class Attack : MonoBehaviour
 {
 
-    public int attackValue;
+    [System.NonSerialized] public int attackValue = -500;
 
 	
 }

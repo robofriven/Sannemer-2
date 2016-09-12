@@ -1,0 +1,1 @@
+1. Change the value of an unentered attack value from -500 to some variable (which will probably equal -500)
